@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="></script>
+
+				<!-- Latest compiled and minified CSS -->
+		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+
+
+		<link rel="stylesheet" href="myStyle.css" />
+
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+
+
+    <title>Aromatherapy Health</title>
+
+
+
+
+
+
+
+  </head>
+
+
+
+  <body>
+    <div class="container-fluid">
+
+    </div>
+
+		<div class="jumbotron">
+			<h1>AppAirEnt</h1>
+			<p>Make Air Quality Tangible</p>
+		</div>
+
+
+
+		<ul class="nav nav-tabs nav-justified ">
+			<!--nav-tabs nav-stacked nav-justified nav-pills-->
+			<li role="presentation" class="active">
+				<a href="#">
+					<span class="glyphicon glyphicon-home" aria-hidden="true" > </span> Home</a>
+			</li>
+			<li role="presentation">
+				<a href="#"><span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true" >
+				</span> Products</a>
+			</li>
+			<li role="presentation">
+				<a href="#"> <span class="glyphicon glyphicon-grain" aria-hidden="true" > </span> Contacts</a>
+			</li>
+		</ul>
+
+
+
+
+
+    <script type="text/javascript" src="berlin_bezirke.js"></script>
+
+    <div id="mapid"></div>
+
+
+
+
+
+
+<!--
+ <div class="navbar-wrapper">
+<div class="container">
+<nav class="navbar navbar-inverse navbar-static-top">
+
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Aromatherapy</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Essential oils</a></li>
+      <li><a href="#holistic">Holistic health</a></li>
+      <li class="dropdown">
+        <a href="#diets" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diet plans<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">The Vegetarian Diet</a></li>
+          <li><a href="#">The Low-Fat Diet</a></li>
+          <li><a href="#">The Bikini Diet</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Menu Plans</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+</div>
+-->
+
+<div>
+		<canvas id="myChart" ></canvas>
+		<canvas id="canvas" ></canvas>
+</div>
+
+
+
+
+<hr class="featurette-divider" />
+
+<canvas id="bubble-chart" ></canvas>
+
+
+<!--
+
+
+
+
+
+
+
+
+
+
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img class="first-slide" src="Fotos/foto1.jpg" alt="Storing essential oils" />
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>How to Store your Essential Oils</h1>
+          <p>The chemicals found in essential oils range from safe alcohols to esters, aldehydes and substances like phenols, which are more toxic, but safe when used correctly.  When you use your oils you dilute them for external application, but you must first ensure that they are stored properly.  If you don't, chemical changes may occur that mean they may be unsafe for use.</p>
+          <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img class="second-slide" src="Fotos/foto1.jpg" alt="Wash your hands" />
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Preserving your Products</h1>
+          <p>Essential oils are natural preservatives, so when added to creams or bath oils they slow down bacterial spoilage.  But the dilution ratios at which they are used are so small that there are insufficient amounts in a product to make it sterile.  Therefore, the same standards of hygiene used for food preparation should be observed.</p>
+          <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img class="third-slide" src="Fotos/foto2.jpg" alt="Correct handling of oils" />
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Correct Handling of Oils</h1>
+          <p>The individual chemical constituents of essential oils may be extracted or manufactured synthetically for a variety of chemical purposes, including solvents and powerful disinfectants.  This gives you an example of how potent they are.  Safety standards for essential oils give the range of oils and their constitutents, which are safe for blending and external use in aromatherapy.  Even though these oils may be judged safe, caution must be observed when handling them, especially in their raw, undiluted state.</p>
+          <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img class="fourth-slide" src="Fotos/foto3.jpg" alt="Using Oils Responsibly" />
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Using Oils Responsibly</h1>
+            <p>For responsible practice, always observe these general safey guidelines for yourself and those people you treat.</p>
+            <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+	<div class="container-fluid marketing">
+  <div class="row">
+    <div class="col-md-4 col-lg-4">
+      <img class="img-circle" src="Fotos/foto1.jpg" alt="Healthy Eating" width="140" height="140" />
+      <h2>Healthy Eating Plans</h2>
+      <p>Ensuring that you eat correctly by following a proper diet is a responsible way of keeping your body healthy and fit.</p>
+      <p><a class="btn btn-default" href="#">View details&raquo;</a></p>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <img class="img-circle" src="Fotos/kimono.jpg" alt="Spiritual Healing" width="140" height="140" />
+      <h2>The Art of Spiritual Healing</h2>
+      <p>With a variety of healing methods such as Tai Chi, Fen Shui and Taoism, you can choose any of these methods to improve your health of your body with slow-moving exercises and proper breathing.</p>
+      <p><a class="btn btn-default" href="#">View details&raquo;</a></p>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <img class="img=circle" src="Fotos/kimono.jpg" alt="Herbal Remedies" width="140" height="140" />
+      <h2>Herbal Remedies</h2>
+      <p>Remedies for symptoms of Stress, weak immune systems, certain illnesses can be found here.</p>
+      <p><a class="btn btn-default" href="#">View details&raquo;</a></p>
+    </div>
+  </div>
+  <hr class="featurette-divider" />
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Choosing your <span class="text-muted"> Carrier Oil</span></h2>
+      <p class="lead">Grapeseed and sweet almond oil are the best general-purpose carrier oils, and to begin with you will only need one or the other.  In this oil-by-oil guide find our about the pros and cons of these and other carrier oils.</p>
+      <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive center-block" src="Fotos/kimono.jpg" alt="Carrier Oils" />
+    </div>
+  </div>
+  <hr class="featurette-divider" />
+
+  <div class="row featurette">
+    <div class="col-md-7 col-md-push-5">
+      <h2 class="featurette-heading">Aromatherapy <span class="text-muted">and massage precautions</span></h2>
+      <p class="lead">There are lots of advantages to using essential oils, especially for massage but there are conditions when home use of aromatherapy and meassage is best avoided.</p>
+      <a class="btn btn-lg btn-primary" href="#" role="button">Read more</a>
+    </div>
+  <div class="col-md-5 col-md-pull-7">
+    <img class="featurette-image img-responsive center-block" src="Fotos/.jpg" alt="Aromatherapy precautions" />
+  </div>
+</div>
+
+
+<hr class="featurette-divider" /> -->
+
+<canvas id="radar-chart" width="800" height="600"></canvas>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+ <script src="myscript.js"></script>
+</body>
+</html>
